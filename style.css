@@ -1,0 +1,111 @@
+/* Configurações gerais para o corpo da página */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Adiciona estilo ao container das opções */
+.tela-inicial-container {
+  text-align: center;
+  position: relative; /* Adiciona posição relativa para posicionar o logo de forma absoluta */
+}
+
+/* Adiciona estilo à imagem do logo */
+#logo {
+  width: 200px; /* Ajuste conforme necessário */
+  height: 200px; /* Ajuste conforme necessário */
+  position: absolute; /* Posiciona o logo de forma absoluta */
+  top: -250px; /* Ajusta a posição para que o logo fique acima das outras opções */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Corrige a centralização horizontal */
+  margin-bottom: 20px; /* Adiciona espaço entre o logo e as opções */
+}
+
+
+/* Adiciona estilo aos containers de opções */
+.opcao-container {
+  display: inline-block;
+  margin: 0 20px; /* Adiciona espaço entre as opções */
+}
+
+/* Adiciona estilo às imagens na tela inicial */
+.opcao-imagem {
+  width: 200px; /* Ajuste conforme necessário */
+  height: 200px; /* Ajuste conforme necessário */
+  cursor: pointer;
+}
+
+/* Adiciona estilo às labels das opções */
+.opcao-label {
+  display: block;
+  font-size: 18px; /* Ajuste conforme necessário */
+  margin-top: 10px; /* Adiciona espaço entre a imagem e a label */
+}
+
+/* Configurações para o tabuleiro do jogo */
+#jogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 600px;
+  height: 400px;
+  border: 2px solid black;
+  background-color: white;
+  margin-top: 20px;
+}
+
+table tr {
+  font: bold 40px Verdana;
+  color: black;
+}
+
+table tr td {
+  text-align: center;
+  width: 33.33%;
+  border: 2px solid black;
+}
+
+table tr td:hover {
+  cursor: pointer;
+}
+
+/* Configurações para o botão "Iniciar" */
+input[type=button] {
+  width: 240px;
+  height: 80px;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Configurações para o campo de entrada de nomes e o botão "Iniciar" */
+fieldset {
+  font-size: 40px;
+  font-weight: bold;
+  border: 3px solid blue;
+  width: 400px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Configurações para rótulos e campos de entrada */
+label,
+input,
+#jogador1,
+#jogador2 {
+  display: block;
+  margin: 10px auto;
+  font-size: 30px;
+}
+
+/* Configurações para o texto "Jogador Atual:" */
+#jogadorAtual {
+  font-size: 40px;
+  margin-top: 1px;
+}

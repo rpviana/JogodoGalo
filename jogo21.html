@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+
+<HEAD>
+  <TITLE>Jogo do Galo</TITLE>
+ 
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    /* Configurações gerais para o corpo da página */
+    body {
+      display: flex;
+      align-items: center; /* Centraliza verticalmente */
+      justify-content: center; /* Centraliza horizontalmente */
+      height: 100vh; /* 100% da altura da viewport */
+      margin: 0; /* Remove margens padrão do corpo da página */
+    }
+
+    /* Configurações para o campo de entrada de nomes e o botão "Iniciar" */
+    fieldset {
+      font-size: 40px;
+      font-weight: bold;
+      border: 3px solid blue;
+      width: 400px;
+      margin-top: 20px;
+      text-align: center; /* Centraliza o texto dentro do fieldset */
+      display: block; /* Torna o fieldset um bloco para centralizá-lo */
+      margin-left: auto; /* Margem esquerda automática para centralizar */
+      margin-right: auto; /* Margem direita automática para centralizar */
+    }
+
+    /* Configurações para rótulos e campos de entrada */
+    label,
+    input,
+    #jogador1,
+    #jogador2 {
+      display: block; /* Coloca os elementos em blocos para que fiquem em linhas separadas */
+      margin: 10px auto; /* Margens superior e inferior de 10px, centralizando horizontalmente */
+      font-size: 30px; /* Tamanho da fonte para rótulos e campos de entrada */
+    }
+
+    /* Adiciona estilo às imagens na tela inicial */
+    .opcao-imagem {
+      width: 200px; /* Ajuste a largura conforme necessário */
+      height: 200px; /* Ajuste a altura conforme necessário */
+      margin: 0 20px; /* Adiciona espaço entre as imagens */
+      cursor: pointer; /* Transforma o cursor em ponteiro ao passar por cima */
+    }
+  </style>
+</HEAD>
+
+<BODY>
+  <div id="tela-inicial" class="tela-inicial-container">
+    <img id="logo" src="meu_logo.png" alt="Logo do meu Joguinho">
+    <div class="opcao-container">
+      <img class="opcao-imagem" src="um_jogador.png" alt="Um Jogador" onclick="iniciarJogoUmJogador()">
+    </div>
+    <div class="opcao-container">
+      <img class="opcao-imagem" src="dois_jogadores.png" alt="Dois Jogadores" onclick="solicitarNomes()">
+    </div>
+  </div>
+  
+
+  <h3 id="jogadorAtual"></h3>
+
+  <div id="jogo">
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td onclick="javascript: setOnCeil(this, 0);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+        <td onclick="javascript: setOnCeil(this, 1);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+        <td onclick="javascript: setOnCeil(this, 2);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+      </tr>
+      <tr>
+        <td onclick="javascript: setOnCeil(this, 3);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+        <td onclick="javascript: setOnCeil(this, 4);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+        <td onclick="javascript: setOnCeil(this, 5);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+      </tr>
+      <tr>
+        <td onclick="javascript: setOnCeil(this, 6);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+        <td onclick="javascript: setOnCeil(this, 7);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+        <td onclick="javascript: setOnCeil(this, 8);" onmouseover="javascript: this.style.backgroundColor = 'blue'"
+          onmouseout="javascript: this.style.backgroundColor = 'white'">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function iniciarJogoUmJogador() {
+      // Inicia o jogo contra o computador automaticamente
+      jogador1 = new Jogador('Jogador 1', 0);
+      jogador2 = new Jogador('Computador', 1);
+      jogadorAtual = jogador1;
+      setLabelJogadorAtual();
+      document.getElementById('tela-inicial').style.display = 'none';
+      document.getElementById('jogo').style.display = 'block';
+      document.getElementById('jogadorAtual').style.display = 'block';
+    }
+
+    function solicitarNomes() {
+      // Redireciona para a tela de solicitação de nomes
+      var nomeJogador1 = prompt('Nome do Jogador 1:');
+      var nomeJogador2 = prompt('Nome do Jogador 2:');
+  
+      // Cria objetos Jogador
+      jogador1 = new Jogador(nomeJogador1, 0);
+      jogador2 = new Jogador(nomeJogador2, 1);
+  
+      // Define o jogador atual como jogador1
+      jogadorAtual = jogador1;
+  
+       // Atualiza o rótulo do jogador atual
+       setLabelJogadorAtual();
+
+// Esconde a div 'tela-inicial'
+document.getElementById('tela-inicial').style.display = 'none';
+// Exibe a div 'game'
+document.getElementById('jogo').style.display = 'block';
+// Exibe a div 'jogadorAtual'
+document.getElementById('jogadorAtual').style.display = 'block';
+}
+
+// Restante do seu código JavaScript...
+
+</script>
+
+</BODY>
+
+</HTML>
